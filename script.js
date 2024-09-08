@@ -13,6 +13,7 @@ const secret_number = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let restart_score = score
 let initial_message = 'Guess My Number!'
+let highscore = 0;
 
 const x = function () {
     console.log(23)
@@ -35,6 +36,13 @@ document.querySelector('.check').addEventListener('click',
 
             document.querySelector('body').style.backgroundColor = '#60b347';
             document.querySelector('.number').style.width = '30rem'
+
+            if(score > highscore){
+                highscore=score;
+                document.querySelector('.highscore').textContent = highscore;
+            }
+            
+
             // Too high
         } else if (guess > secret_number) {
             document.querySelector('.message').textContent =
